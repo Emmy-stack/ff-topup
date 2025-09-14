@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Fire Diamond Top-Up</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('chest.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      color: #f0f0f0;
+      text-align: center;
+    }
+    header {
+      background: rgba(0,0,0,0.85);
+      padding: 25px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #ffcc00;
+      text-shadow: 2px 2px 10px #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    header img {
+      height: 60px;
+    }
+    .container {
+      padding: 30px;
+      background: rgba(0,0,0,0.8);
+      margin: 40px auto;
+      max-width: 1000px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 20px rgba(0,0,0,0.9);
+    }
+    .input-box {
+      margin: 20px;
+    }
+    input {
+      padding: 14px;
+      width: 320px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      outline: none;
+    }
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin: 40px 0;
+    }
+    .package {
+      background: linear-gradient(135deg, #1f1f1f, #292929);
+      padding: 20px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 2px solid transparent;
+    }
+    .package:hover {
+      background: linear-gradient(135deg, #ffcc00, #ffaa00);
+      color: #000;
+      transform: scale(1.07);
+      border: 2px solid #fff;
+    }
+    .package img {
+      width: 75px;
+      margin-bottom: 10px;
+    }
+    .package h3 {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+    .package p {
+      margin: 0;
+      font-size: 16px;
+      color: #ffcc00;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 20px;
+      padding: 16px 35px;
+      border: none;
+      border-radius: 12px;
+      background: #ffcc00;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ffaa00;
+    }
+    .note {
+      margin-top: 20px;
+      font-size: 15px;
+      color: #ddd;
+      font-style: italic;
+    }
+    .banner {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-bottom: 4px solid #ffcc00;
+    }
+    footer {
+      margin-top: 30px;
+      background: rgba(0,0,0,0.9);
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+    footer a {
+      color: #ffcc00;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://seeklogo.com/images/F/free-fire-logo-3A52C2591D-seeklogo.com.png" alt="Free Fire Logo">
+    Free Fire Diamond Top-Up
+  </header>
+
+  <img src="chest.png" alt="Diamond Chest" class="banner">
+
+  <div class="container">
+    <div class="input-box">
+      <input type="text" id="playerId" placeholder="Enter your Free Fire Player ID">
+    </div>
+
+    <h2>Select Diamond Package</h2>
+    <div class="packages">
+      <div class="package" onclick="selectPackage('100 Diamonds 💎', '₦1750')">
+        <img src="diamond.png" alt="Diamonds">
+        <h3>100 Diamonds 💎</h3>
+        <p>₦1750</p>
+      </div>
+      <div class="package" onclick="selectPackage('200 Diamonds 💎', '₦3350')">
+        <img src="diamond.png" alt="Diamonds">
+        <h3>200 Diamonds 💎</h3>
+        <p>₦3350</p>
+      </div>
+      <div class="package" onclick="selectPackage('500 Diamonds 💎', '₦8300')">
+        <img src="diamond.png" alt="Diamonds">
+        <h3>500 Diamonds 💎</h3>
+        <p>₦8300</p>
+      </div>
+      <div class="package" onclick="selectPackage('1000 Diamonds 💎', '₦16500')">
+        <img src="diamond.png" alt="Diamonds">
+        <h3>1000 Diamonds 💎</h3>
+        <p>₦16500</p>
+      </div>
+      <div class="package" onclick="selectPackage('2000 Diamonds 💎', '₦35000')">
+        <img src="diamond.png" alt="Diamonds">
+        <h3>2000 Diamonds 💎</h3>
+        <p>₦35000</p>
+      </div>
+      <div class="package" onclick="selectPackage('5000 Diamonds 💎', '₦90000')">
+        <img src="diamond.png" alt="Diamonds">
+        <h3>5000 Diamonds 💎</h3>
+        <p>₦90000</p>
+      </div>
+    </div>
+
+    <button onclick="checkout()">✅ Confirm to Pay</button>
+
+    <p class="note">💡 Note: Some additional amount of diamonds will be given depending on the bundle you buy.</p>
+  </div>
+
+  <footer>
+    📞 Contact us directly on WhatsApp: 
+    <a href="https://wa.me/2349155029545">+234 915 502 9545</a>
+  </footer>
+
+  <script>
+    let selectedPackage = null;
+    let selectedPrice = null;
+
+    function selectPackage(pkg, price) {
+      selectedPackage = pkg;
+      selectedPrice = price;
+      alert("You selected " + pkg + " for " + price);
+    }
+
+    function checkout() {
+      let playerId = document.getElementById("playerId").value;
+      if (!playerId || !selectedPackage) {
+        alert("Please enter your Player ID and select a package!");
+        return;
+      }
+      let message = `Hello, I want to buy ${selectedPackage} for ${selectedPrice}. My Free Fire Player ID is: ${playerId}`;
+      let whatsappNumber = "2349155029545";
+      let url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
